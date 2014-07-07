@@ -3,13 +3,11 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="">
-		<property name="connection.url">jdbc:oracle:thin:@202.120.40.91:11521:orcl</property>
-		<property name="connection.username">foursquare</property>
-		<property name="connection.password">foursquare</property>
-		<property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
-        <property name="hibernate.show_sql">true</property>
-		<property name="hibernate.current_session_context_class">thread</property>
+    <session-factory>
+    	<property name="dialect">org.hibernate.dialect.Oracle10Dialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.password">foursquare</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@202.120.40.91:11521:orcl</property>
+        <property name="hibernate.connection.username">foursquare</property>
     </session-factory>
 </hibernate-configuration>
