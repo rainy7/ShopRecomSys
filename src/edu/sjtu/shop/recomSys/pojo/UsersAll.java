@@ -17,6 +17,7 @@ public class UsersAll implements java.io.Serializable {
 	private String icon;
 	private String gender;
 	private String userCity;
+	private Set pathMonths = new HashSet(0);
 	private Set paths = new HashSet(0);
 
 	// Constructors
@@ -32,13 +33,15 @@ public class UsersAll implements java.io.Serializable {
 
 	/** full constructor */
 	public UsersAll(Long userId, String firstName, String lastName,
-			String icon, String gender, String userCity, Set paths) {
+			String icon, String gender, String userCity, Set pathMonths,
+			Set paths) {
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.icon = icon;
 		this.gender = gender;
 		this.userCity = userCity;
+		this.pathMonths = pathMonths;
 		this.paths = paths;
 	}
 
@@ -90,6 +93,14 @@ public class UsersAll implements java.io.Serializable {
 
 	public void setUserCity(String userCity) {
 		this.userCity = userCity;
+	}
+
+	public Set getPathMonths() {
+		return this.pathMonths;
+	}
+
+	public void setPathMonths(Set pathMonths) {
+		this.pathMonths = pathMonths;
 	}
 
 	public Set getPaths() {

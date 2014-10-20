@@ -25,6 +25,12 @@
         <property name="userCity" type="java.lang.String">
             <column name="USER_CITY" length="100" />
         </property>
+        <set name="pathMonths" inverse="true">
+            <key>
+                <column name="USER_ID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="edu.sjtu.shop.recomSys.pojo.PathMonth" />
+        </set>
         <set name="paths" inverse="true">
             <key>
                 <column name="USER_ID" precision="22" scale="0" not-null="true" />

@@ -1,5 +1,8 @@
 package edu.sjtu.shop.recomSys.dao;
 
+import edu.sjtu.shop.recomSys.pojo.Path;
+import edu.sjtu.shop.recomSys.pojo.PathMonth;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -11,27 +14,26 @@ import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.sjtu.shop.recomSys.pojo.Path;
-
 /**
- * A data access object (DAO) providing persistence and search support for Path
- * entities. Transaction control of the save(), update() and delete() operations
- * can directly support Spring container-managed transactions or they can be
- * augmented to handle user-managed Spring transactions. Each of these methods
- * provides additional information for how to configure it for the desired type
- * of transaction control.
+ * A data access object (DAO) providing persistence and search support for
+ * PathMonth entities. Transaction control of the save(), update() and delete()
+ * operations can directly support Spring container-managed transactions or they
+ * can be augmented to handle user-managed Spring transactions. Each of these
+ * methods provides additional information for how to configure it for the
+ * desired type of transaction control.
  * 
- * @see edu.sjtu.shop.recomSys.pojo.Path
+ * @see edu.sjtu.shop.recomSys.pojo.PathMonth
  * @author MyEclipse Persistence Tools
  */
 
-public class PathDAO extends BaseHibernateDAO {
-	private static final Logger log = LoggerFactory.getLogger(PathDAO.class);
+public class PathMonthDAO extends BaseHibernateDAO {
+	private static final Logger log = LoggerFactory
+			.getLogger(PathMonthDAO.class);
 
 	// property constants
 
-	public void save(Path transientInstance) {
-		log.debug("saving Path instance");
+	public void save(PathMonth transientInstance) {
+		log.debug("saving PathMonth instance");
 		Transaction tran=getSession().beginTransaction();
 		try {
 			getSession().save(transientInstance);
@@ -41,12 +43,11 @@ public class PathDAO extends BaseHibernateDAO {
 			throw re;
 		}
 		tran.commit();
-        getSession().flush(); 
-        getSession().close();
+		getSession().close();
 	}
 
-	public void delete(Path persistentInstance) {
-		log.debug("deleting Path instance");
+	public void delete(PathMonth persistentInstance) {
+		log.debug("deleting PathMonth instance");
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -56,11 +57,11 @@ public class PathDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public Path findById(Long id) {
-		log.debug("getting Path instance with id: " + id);
+	public PathMonth findById(java.math.BigDecimal id) {
+		log.debug("getting PathMonth instance with id: " + id);
 		try {
-			Path instance = (Path) getSession().get(
-					"edu.sjtu.shop.recomSys.pojo.Path", id);
+			PathMonth instance = (PathMonth) getSession().get(
+					"edu.sjtu.shop.recomSys.pojo.PathMonth", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -68,11 +69,11 @@ public class PathDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public List findByExample(Path instance) {
-		log.debug("finding Path instance by example");
+	public List findByExample(PathMonth instance) {
+		log.debug("finding PathMonth instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("edu.sjtu.shop.recomSys.pojo.Path")
+					.createCriteria("edu.sjtu.shop.recomSys.pojo.PathMonth")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -84,10 +85,10 @@ public class PathDAO extends BaseHibernateDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Path instance with property: " + propertyName
+		log.debug("finding PathMonth instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Path as model where model."
+			String queryString = "from PathMonth as model where model."
 					+ propertyName + "= ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -97,11 +98,10 @@ public class PathDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
-
-
-	public List<Path> findByUserId(Long userId) {
+	
+	public List<PathMonth> findByUserId(Long userId) {
 		try {
-			String queryString = "from Path as model where model.usersAll.userId = ?";
+			String queryString = "from PathMonth as model where model.usersAll.userId = ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setLong(0, userId);
 			return queryObject.list();
@@ -110,11 +110,11 @@ public class PathDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
-	
+
 	public List findAll() {
-		log.debug("finding all Path instances");
+		log.debug("finding all PathMonth instances");
 		try {
-			String queryString = "from Path";
+			String queryString = "from PathMonth";
 			Query queryObject = getSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -123,10 +123,10 @@ public class PathDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public Path merge(Path detachedInstance) {
-		log.debug("merging Path instance");
+	public PathMonth merge(PathMonth detachedInstance) {
+		log.debug("merging PathMonth instance");
 		try {
-			Path result = (Path) getSession().merge(detachedInstance);
+			PathMonth result = (PathMonth) getSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -135,8 +135,8 @@ public class PathDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void attachDirty(Path instance) {
-		log.debug("attaching dirty Path instance");
+	public void attachDirty(PathMonth instance) {
+		log.debug("attaching dirty PathMonth instance");
 		Transaction tran=getSession().beginTransaction();
 		try {
 			getSession().saveOrUpdate(instance);
@@ -146,10 +146,12 @@ public class PathDAO extends BaseHibernateDAO {
 			throw re;
 		}
 		tran.commit();
+		getSession().flush();
+		getSession().close();
 	}
 
-	public void attachClean(Path instance) {
-		log.debug("attaching clean Path instance");
+	public void attachClean(PathMonth instance) {
+		log.debug("attaching clean PathMonth instance");
 		try {
 			getSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");

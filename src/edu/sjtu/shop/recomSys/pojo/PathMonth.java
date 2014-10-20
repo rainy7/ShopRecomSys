@@ -6,10 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Path entity. @author MyEclipse Persistence Tools
+ * PathMonth entity. @author MyEclipse Persistence Tools
  */
 
-public class Path implements java.io.Serializable {
+public class PathMonth implements java.io.Serializable {
 
 	// Fields
 
@@ -18,16 +18,16 @@ public class Path implements java.io.Serializable {
 	private Date datetime;
 	private Integer levelId;
 	private Integer poiNumber;
-	private Set pois = new HashSet(0);
+	private Set poiMonths = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
-	public Path() {
+	public PathMonth() {
 	}
 
 	/** minimal constructor */
-	public Path(Long pathId, UsersAll usersAll, Date datetime,
+	public PathMonth(Long pathId, UsersAll usersAll, Date datetime,
 			Integer levelId) {
 		this.pathId = pathId;
 		this.usersAll = usersAll;
@@ -36,13 +36,13 @@ public class Path implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Path(Long pathId, UsersAll usersAll, Date datetime,
-			Integer levelId, Set pois) {
+	public PathMonth(Long pathId, UsersAll usersAll, Date datetime,
+			Integer levelId, Set poiMonths) {
 		this.pathId = pathId;
 		this.usersAll = usersAll;
 		this.datetime = datetime;
 		this.levelId = levelId;
-		this.pois = pois;
+		this.poiMonths = poiMonths;
 	}
 
 	// Property accessors
@@ -87,12 +87,12 @@ public class Path implements java.io.Serializable {
 		this.poiNumber = poiNumber;
 	}
 
-	public Set getPois() {
-		return this.pois;
+	public Set getPoiMonths() {
+		return this.poiMonths;
 	}
 
-	public void setPois(Set pois) {
-		this.pois = pois;
+	public void setPoiMonths(Set poiMonths) {
+		this.poiMonths = poiMonths;
 	}
 
 }

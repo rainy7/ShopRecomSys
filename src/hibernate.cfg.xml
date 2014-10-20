@@ -20,10 +20,15 @@
 			oracle.jdbc.driver.OracleDriver
 		</property>
 		<property name="hibernate.show_sql">FALSE</property>
-		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.current_session_context_class">
+			thread
+		</property>
 		<property name="myeclipse.connection.profile">oralce</property>
 		<mapping resource="edu/sjtu/shop/recomSys/hbm/Poi.hbm.xml" />
 		<mapping resource="edu/sjtu/shop/recomSys/hbm/Path.hbm.xml" />
+		<mapping
+			resource="edu/sjtu/shop/recomSys/hbm/PathMonth.hbm.xml" />
+		<mapping resource="edu/sjtu/shop/recomSys/hbm/PoiMonth.hbm.xml" />
 		<mapping resource="edu/sjtu/shop/recomSys/hbm/TipsAll.hbm.xml" />
 		<mapping resource="edu/sjtu/shop/recomSys/hbm/VeNyc.hbm.xml" />
 		<mapping resource="edu/sjtu/shop/recomSys/hbm/Category.hbm.xml" />
